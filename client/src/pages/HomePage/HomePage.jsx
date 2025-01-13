@@ -1,12 +1,11 @@
 import styles from './Home.module.css';
-import RandomDuck from '../../components/RandomDuck/RandomDuck.jsx';
+import DisplayData from '../../components/DisplayData/DisplayData.jsx';
 
 
 const Home = () => {
   return (
     <div className={styles.home}>
-      <h1 className={styles.headline}>Duck It</h1>
-      <RandomDuck />
+      <DisplayData/>
     </div>
   );
 };
