@@ -1,49 +1,52 @@
 /* App.module.css */
 .app {
-  text-align: center;
+    text-align: center;
 }
 
 .appHeader {
-  background-color: #53474F;
-  padding: 5px 30px 5px 30px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    background-color: #53474f;
+    padding: 5px 30px 5px 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .appLogo {
-  height: 100px;
+    height: 100px;
 }
 
 .appNav {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
 
 .appLink {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
 }
 
 .appLink:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .main {
-  padding: 20px;
-  background-color: #FFDCE8;
-  height: 100vh;
+    padding: 20px;
+    background-image: url('/images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*background-color: #ffdce8;*/
+    height: 100vh;
 }
 
 .footer {
-  padding: 10px;
-  background-color: #53474F;
-  color: white;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  text-align: center;
+    padding: 10px;
+    background-color: #060233;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
 }
-  
