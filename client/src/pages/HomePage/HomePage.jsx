@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './Home.module.css';
-/*import RandomDuck from '../../components/RandomDuck/RandomDuck.jsx';*/
-
+import UploadFileButton from '../../components/UploadFileButton';
 const Home = () => {
     const [isInfoVisible, setIsInfoVisible] = useState(false);
 
@@ -28,7 +27,7 @@ const Home = () => {
 
             <p className={styles.paragraph}>
                 {' '}
-                How it Works: <br></br>Our analyzer will scan the uploaded
+                How it works: <br></br>Our analyzer will scan the uploaded
                 WhatsApp chat file and identify offensive words from a carefully
                 curated list of X words. <br></br>After the upload, a results
                 screen will display the number of offensive words, who sent
@@ -37,6 +36,9 @@ const Home = () => {
                 is processed securely and anonymously. <br></br>Try it now and
                 see the results!
             </p>
+            <h3 className={styles.headline3}>
+                upload the whatsapp file here ⬇
+            </h3>
             {isInfoVisible && (
                 <div className={styles.overlay}>
                     <div className={styles.infoBox}>
@@ -61,15 +63,18 @@ const Home = () => {
                     </div>
                 </div>
             )}
-            <div>
-                <img
-                    src='../images/ibutton.png'
-                    alt='Logo'
-                    className={styles.ibutton}
-                    onClick={handleIClick}
-                />
+            <div className={styles.buttonsBar}>
+                <>
+                    <img
+                        src='../images/ibutton.png'
+                        alt='Logo'
+                        className={styles.ibutton}
+                        onClick={handleIClick}
+                    />
+                </>
+
+                <UploadFileButton />
             </div>
-            {/*<RandomDuck />*/}
         </div>
     );
 };

@@ -19,9 +19,9 @@ function App() {
                         <Route path='/' element={<Home />} />
                     </Routes>
                 </main>
-                <footer className={styles.footer}>
+                {/*<footer className={styles.footer}>
                     <p>&copy; 2024 My App</p>
-                </footer>
+                </footer>*/}
             </div>
         </BrowserRouter>
     );
