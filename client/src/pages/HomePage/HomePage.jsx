@@ -1,13 +1,8 @@
-import { useState } from 'react';
 import styles from './Home.module.css';
 import UploadFileButton from '../../components/UploadFileButton';
+import IButton from '../../components/iButton';
+
 const Home = () => {
-    const [isInfoVisible, setIsInfoVisible] = useState(false);
-
-    const handleIClick = () => {
-        setIsInfoVisible(!isInfoVisible);
-    };
-
     return (
         <div className={styles.home}>
             <div>
@@ -29,49 +24,18 @@ const Home = () => {
                 {' '}
                 How it works: <br></br>Our analyzer will scan the uploaded
                 WhatsApp chat file and identify offensive words from a carefully
-                curated list of X words. <br></br>After the upload, a results
-                screen will display the number of offensive words, who sent
-                them, and which categories they belong to.<br></br> No personal
-                data is stored or shared during the analysis process. Your data
-                is processed securely and anonymously. <br></br>Try it now and
-                see the results!
+                curated list of about 400 words and phrases. <br></br>After the
+                upload, a results screen will display the number of offensive
+                words, who sent them, and which categories they belong to.
+                <br></br> No personal data is stored or shared during the
+                analysis process. Your data is processed securely and
+                anonymously. <br></br>Try it now and see the results!
             </p>
             <h3 className={styles.headline3}>
                 upload the whatsapp file here ⬇
             </h3>
-            {isInfoVisible && (
-                <div className={styles.overlay}>
-                    <div className={styles.infoBox}>
-                        <p>
-                            How to import the file from whatsapp: <br></br>
-                            1. Go to the chat you want to export.<br></br>
-                            2. Access Chat Options: Tap the chat or group name
-                            at the top, then select Export Chat (on iOS) or More
-                            -- Export Chat (on Android).<br></br>
-                            3. Choose Media Option: Select without media (text
-                            only).<br></br>
-                            4. Save/Share the File: Send it via email, save it
-                            locally, or upload to a cloud service. <br></br>
-                            5. The chat is exported as a .txt file.
-                        </p>
-                        <button
-                            onClick={handleIClick}
-                            className={styles.closeButton}
-                        >
-                            close
-                        </button>
-                    </div>
-                </div>
-            )}
             <div className={styles.buttonsBar}>
-                <>
-                    <img
-                        src='../images/ibutton.png'
-                        alt='Logo'
-                        className={styles.ibutton}
-                        onClick={handleIClick}
-                    />
-                </>
+                <IButton />
 
                 <UploadFileButton />
             </div>
