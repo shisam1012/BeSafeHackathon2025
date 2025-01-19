@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useState} from 'react';
+import  {parseChatFile}  from '../Parser/ParseChat.jsx';
+import blacklist from '../Parser/BlackList.jsx';
 import styles from './DisplayData.module.css';
+import file from '../Parser/ExampleChat.txt';
+
+
 
 const DisplayData = () => {
-    const [messages] = useState([
-        {author: "John_Smith", content: "Hey everyone, how's it going?", problematicWords: [], id:1},
-        {author: "AngryUser123", content: "You're such an idiot, I'll beat you up after school", problematicWords: ["idiot", "beat you"], categories: ['hate', 'threats'], id:2},
-        {author: "Creep444", content: "Hey babe, you're looking fine, let me be your stalker", problematicWords: ["stalker"], categories: ['harassment'], id:3}
-    ]);
+    const [messages] = useState( parseChatFile(file, blacklist));
 
+  
+
+if (!messages){return null}
     // Calculate analytics
     const totalProblematicWords = messages.reduce((total, msg) => total + msg.problematicWords.length, 0);
     
@@ -31,6 +35,7 @@ const DisplayData = () => {
     }, {});
 
     return (
+
         <div className={styles.container}>
             <div className={styles.filterSection}>
                 {/* Summary Statistics */}
