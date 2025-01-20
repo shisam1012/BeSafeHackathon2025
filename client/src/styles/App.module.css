@@ -33,8 +33,8 @@
 
 .main {
   padding: 20px;
-  background-color: #FFDCE8;
-  height: 100vh;
+  background-color:#f0f7ff;
+  min-height: 100vh;
 }
 
 .footer {
