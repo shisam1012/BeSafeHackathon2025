@@ -5,6 +5,8 @@ import { useState } from "react";
 import projectLogo from './assets/project-logo.png'
 //import UploadFileButton from './components/common copy/UploadFileButton/UploadFileButton';
 import UploadFileButton from './components/common/UploadFileButton/UploadFileButton';
+import DisplayData from './components/DisplayData/DisplayData';
+
 function App() {
   const [fileContent, setFileContent] = useState("");
   return (

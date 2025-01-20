@@ -1,7 +1,8 @@
-import { useState} from 'react';
+// import { useState} from 'react';
 import  {parseChatFile}  from '../Parser/ParseChat.jsx';
 import blacklist from '../Parser/BlackList.jsx';
 import styles from './DisplayData.module.css';
+import PropTypes from 'prop-types';
 //import file from '../Parser/ExampleChat.txt';
 
 
@@ -101,5 +102,9 @@ if (!messages){return null}
         </div>
     );
 };
+
+DisplayData.propTypes = {
+    fileContent: PropTypes.any
+}
 
 export default DisplayData;
