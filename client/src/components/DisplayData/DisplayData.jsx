@@ -1,16 +1,50 @@
-// import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import  {parseChatFile}  from '../Parser/ParseChat.jsx';
 import blacklist from '../Parser/BlackList.jsx';
 import styles from './DisplayData.module.css';
 import PropTypes from 'prop-types';
-//import file from '../Parser/ExampleChat.txt';
 
+const apiKey = "AIzaSyDR64IZyG6MqMjo50od-m3a5JjCvW-Fatw";
+const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
 
 
 const DisplayData = ({fileContent}) => {
-    const messages = parseChatFile(fileContent, blacklist);
+const messagesBeforeAi = parseChatFile(fileContent, blacklist);
+const [messages, setMessages] = useState(null);
 
+console.table(messages)
+
+useEffect(() => {
+    const requestData = {
+      contents: [{
+        parts: [{ text: "Keep the object in the same structure, and add a field named 'score' to each object in the array, and its value should be a rating of how harmful the text in content is, scaling 1-10. make sure your response is json string that can be parsed into json object. your response is only the json data, no other text or data. also remove ```json from the start of your response. make sure to check the word inside sentence context whether its really problematic, for example: 'dying my hair' is not problematic since its not really about a man who wish to die." + JSON.stringify(messagesBeforeAi) }]
+      }]
+    };
   
+    const fetchGeminiData = async () => {
+      try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        const aiText = JSON.parse(data.candidates[0].content.parts[0].text);
+        setMessages(aiText);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+  
+    fetchGeminiData();
+  }, [fileContent]);
 
 if (!messages){return null}
     // Calculate analytics
@@ -108,3 +142,7 @@ DisplayData.propTypes = {
 }
 
 export default DisplayData;
+
+
+
+
