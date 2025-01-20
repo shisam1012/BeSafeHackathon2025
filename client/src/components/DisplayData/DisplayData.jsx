@@ -3,14 +3,38 @@ import  {parseChatFile}  from '../Parser/ParseChat.jsx';
 import blacklist from '../Parser/BlackList.jsx';
 import styles from './DisplayData.module.css';
 import PropTypes from 'prop-types';
-//import file from '../Parser/ExampleChat.txt';
+import file from '../Parser/ExampleChat.txt';
+
 
 
 
 const DisplayData = ({fileContent}) => {
-    const messages = parseChatFile(fileContent, blacklist);
+    console.log(fileContent);
 
-  
+    const messages = parseChatFile(file, blacklist);
+   
+  // Function to get background color based on severity score
+  const getSeverityColor = (score) => {
+    // Normalize score to be between 1-5
+    const normalizedScore = ((score - 1) % 5) + 1;
+    
+    switch(normalizedScore) {
+        case 1:
+            return '#ffcccc'; // Red background
+        case 2:
+            return '#ffe5cc'; // Orange background
+        case 3:
+            return '#fff2cc'; // Yellow background
+        case 4:
+            return '#e5f2cc'; // Light green background
+        case 5:
+            return '#ccffcc'; // Green background
+        default:
+            return '#ffffff'; // White background as fallback
+    }
+};
+
+
 
 if (!messages){return null}
     // Calculate analytics
@@ -76,7 +100,19 @@ if (!messages){return null}
                             }`}
                         >
                             <div className={styles.messageHeader}>
-                                <h3 className={styles.messageAuthor}>{message.author}</h3>
+                                <h3 className={styles.messageAuthor}>{message.author}
+                                </h3>
+                                <span className={styles.severityScore}
+                
+                                        style={{
+                                            backgroundColor: getSeverityColor(message.score),
+                                            padding: '4px 8px',
+                                            borderRadius: '4px',
+                                            marginLeft: '8px'
+                                        }}>
+                                    
+                                        Severity Score: {((message.score - 1) % 5) + 1}
+                                    </span>
                                 {message.categories && (
                                     <div className={styles.categoryTags}>
                                         {message.categories.map(category => (
@@ -87,6 +123,7 @@ if (!messages){return null}
                                     </div>
                                 )}
                             </div>
+                            <span className={styles.messageContent}>{message.aiAnalyze}</span>
                             <p className={styles.messageContent}>{message.content}</p>
                             {message.problematicWords.length > 0 && (
                                 <div className={styles.problematicWordsBox}>
