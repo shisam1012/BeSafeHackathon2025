@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router'
 import Home from './pages/HomePage/HomePage';
 import styles from './styles/App.module.css';
-
+import { useState } from "react";
 import projectLogo from './assets/project-logo.png'
-
+//import UploadFileButton from './components/common copy/UploadFileButton/UploadFileButton';
+import UploadFileButton from './components/common/UploadFileButton/UploadFileButton';
 function App() {
+  const [fileContent, setFileContent] = useState("");
   return (
     <BrowserRouter>
       <div className={styles.app}>
@@ -17,10 +19,11 @@ function App() {
         <main className={styles.main}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/upload_file" element={<UploadFileButton setFileContent={setFileContent} />} />
           </Routes>
         </main>
         <footer className={styles.footer}>
-          <p>&copy; 2024 My App</p>
+          <p> 2024 My App</p>
         </footer>
       </div>
     </BrowserRouter>
