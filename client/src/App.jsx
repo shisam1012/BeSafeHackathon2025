@@ -20,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/upload_file" element={<UploadFileButton setFileContent={setFileContent} />} />
+            <Route path="/results" element={<DisplayData fileContent={fileContent} />} />
           </Routes>
         </main>
         <footer className={styles.footer}>
