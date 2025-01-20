@@ -12,7 +12,7 @@ function App() {
       <div className={styles.app}>
         <main className={styles.main}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home setFileContent={setFileContent}/>} />
             <Route path="/upload_file" element={<UploadFileButton setFileContent={setFileContent} />} />
             <Route path="/results" element={<DisplayData fileContent={fileContent} />} />
           </Routes>

@@ -1,8 +1,9 @@
 import styles from './Home.module.css';
 import UploadFileButton from '../../components/UploadFileButton';
 import IButton from '../../components/iButton';
+import PropTypes from 'prop-types';
 
-const Home = () => {
+const Home = ({setFileContent}) => {
     return (
         <div className={styles.home}>
             <div>
@@ -37,10 +38,12 @@ const Home = () => {
             <div className={styles.buttonsBar}>
                 <IButton />
 
-                <UploadFileButton />
+                <UploadFileButton setFileContent={setFileContent}/>
             </div>
         </div>
     );
 };
-
+Home.propTypes={
+  setFileContent: PropTypes.func.isRequired
+};
 export default Home;

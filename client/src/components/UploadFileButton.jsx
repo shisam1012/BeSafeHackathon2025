@@ -2,11 +2,12 @@
 import { useState } from 'react';
 import './UploadButton.css';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router';
 
 
-const UploadFileButton = ({setFileContent, fileContent}) => {
+const UploadFileButton = ({setFileContent}) => {
     const [fileName, setFileName] = useState('');
-
+    const navigate = useNavigate();
     const fileReader = new FileReader();
     fileReader.onload = (e) => {
         const file = e.target.result;
@@ -17,7 +18,7 @@ const UploadFileButton = ({setFileContent, fileContent}) => {
             const file = event.target.files[0];
             setFileName(file.name);
             //fileReader.readAsText(file);
-            //fileReader.readAsText(event.target.files[0]);
+            fileReader.readAsText(event.target.files[0]);
         }
     };
 
@@ -27,7 +28,7 @@ const UploadFileButton = ({setFileContent, fileContent}) => {
 
     //// send to the parser
     const handleAnalayze = () => {
-        alert('analyzing....');
+        navigate("/results");
     };
     return (
         <div className='buttonArea'>
@@ -54,7 +55,6 @@ const UploadFileButton = ({setFileContent, fileContent}) => {
                 onChange={handleFileChange}
                 style={{ display: 'none' }}
             />
-            {fileContent}
 
             {fileName && (
                 <button onClick={handleAnalayze} className='uploadButton'>
@@ -67,7 +67,6 @@ const UploadFileButton = ({setFileContent, fileContent}) => {
 
 UploadFileButton.propTypes = {
     setFileContent: PropTypes.any,
-    fileContent: PropTypes.any
 }
 
 export default UploadFileButton;
