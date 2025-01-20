@@ -8,7 +8,7 @@ const Home = ({setFileContent}) => {
         <div className={styles.home}>
             <div>
                 <h1 className={styles.headline}>
-                    Safe Chats
+                    SafeChats
                     <img
                         src='../images/bluetTicks1.png'
                         alt='Logo'
