@@ -148,4 +148,10 @@
   .categoryTags {
       margin-top: 8px;
   }
+  .severityScore {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: normal;
+}
 }
