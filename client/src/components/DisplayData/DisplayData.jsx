@@ -2,12 +2,12 @@ import { useState} from 'react';
 import  {parseChatFile}  from '../Parser/ParseChat.jsx';
 import blacklist from '../Parser/BlackList.jsx';
 import styles from './DisplayData.module.css';
-import file from '../Parser/ExampleChat.txt';
+//import file from '../Parser/ExampleChat.txt';
 
 
 
-const DisplayData = () => {
-    const [messages] = useState( parseChatFile(file, blacklist));
+const DisplayData = ({fileContent}) => {
+    const messages = parseChatFile(fileContent, blacklist);
 
   
 
