@@ -1,9 +1,10 @@
 // // Filename : App.js
 import { useState } from 'react';
 import './UploadButton.css';
-//import { useContext } from 'react';
-const UploadFileButton = () => {
-    const [fileContent, setFileContent] = useState('');
+import PropTypes from 'prop-types';
+
+
+const UploadFileButton = ({setFileContent, fileContent}) => {
     const [fileName, setFileName] = useState('');
 
     const fileReader = new FileReader();
@@ -63,5 +64,10 @@ const UploadFileButton = () => {
         </div>
     );
 };
+
+UploadFileButton.propTypes = {
+    setFileContent: PropTypes.any,
+    fileContent: PropTypes.any
+}
 
 export default UploadFileButton;

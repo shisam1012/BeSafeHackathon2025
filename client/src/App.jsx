@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route} from 'react-router'
+import {useState} from 'react';
 import Home from './pages/HomePage/HomePage';
 import styles from './styles/App.module.css';
-import UploadFileButton from './components/common/UploadFileButton/UploadFileButton';
+import UploadFileButton from './components/UploadFileButton';
 import DisplayData from './components/DisplayData/DisplayData';
 
 function App() {
