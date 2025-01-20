@@ -37,8 +37,6 @@ export function parseChatFile(file, blacklist) {
             content: message,
             problematicWords: problematicWords,
             categories: categories,
-            score: idCounter,
-            aiAnalyze:"hgfcvbnlkj",
             id: idCounter++
           });
         }

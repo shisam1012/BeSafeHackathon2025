@@ -49,18 +49,23 @@ useEffect(() => {
     // Function to get background color based on severity score
     const getSeverityColor = (score) => {
         // Normalize score to be between 1-5
-        const normalizedScore = ((score - 1) % 5) + 1;
         
-        switch(normalizedScore) {
-            case 1:
+        switch(score) {
+            case 10:
+            case 9:
                 return '#ffcccc'; // Red background
-            case 2:
+            case 8:
+            case 7:
                 return '#ffe5cc'; // Orange background
-            case 3:
+            case 6:
+            case 5:
                 return '#fff2cc'; // Yellow background
             case 4:
+            case 3:
                 return '#e5f2cc'; // Light green background
-            case 5:
+            case 2:
+            case 1:
+            case 0:
                 return '#ccffcc'; // Green background
             default:
                 return '#ffffff'; // White background as fallback
@@ -143,7 +148,7 @@ if (!messages){return null}
                                             marginLeft: '8px'
                                         }}>
                                     
-                                        Severity Score: {((message.score - 1) % 5) + 1}
+                                        Severity Score: {message.score }
                                     </span>
                                 {message.categories && (
                                     <div className={styles.categoryTags}>
