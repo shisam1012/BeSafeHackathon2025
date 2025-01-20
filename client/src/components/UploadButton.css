@@ -1,0 +1,25 @@
+.buttonArea {
+    display: flex;
+}
+
+.uploadButton {
+    font-size: 1.2em;
+    padding: 0.5vmax;
+    color: rgb(0, 15, 32);
+    background-color: rgb(210, 238, 255);
+    border: none;
+    border-radius: 1vmax;
+    cursor: pointer;
+    min-height: 4vmax;
+}
+
+.uploadButton:hover {
+    transform: scale(1.1);
+    background-color: rgb(204, 235, 255);
+}
+
+.fileName {
+    font-size: 1.3em;
+    padding: 1.2vmax;
+    color: rgb(0, 15, 32);
+}

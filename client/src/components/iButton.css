@@ -1,0 +1,52 @@
+.ibutton {
+    cursor: pointer;
+    min-width: 3vmax;
+    max-width: 4vmax;
+    min-height: 3vmax;
+    max-height: 4vmax;
+}
+
+.ibutton:hover {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 30%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.infoBox {
+    background-color: rgb(6, 7, 78, 0.95);
+    color: rgb(224, 241, 238);
+    font-size: 1.1em;
+    font-family: sans-serif;
+    text-align: left;
+    line-height: 2.5vmax;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: darkblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    transform: scale(1.1);
+}
